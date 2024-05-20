@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: #333333;
+}
+
+li {
+  float: left;
+}
+
+li a {
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 16px;
+  text-decoration: none;
+}
+
+li a:hover {
+  background-color: #111111;
+}
+</style>
+</head>
+<body>
+
+<h2>Welcome To ToDo List Aplication</h2>
+<p></p>
+
+<ul>
+  <li><a href="/login">Login</a></li>
+  <li><a href="/reg">Register</a></li>
+</ul>
+
+<h1>Welcome to {{user}} </h1>
+    <P>Following is the ToDo List</P>
+    <form action="/deletef" method="post">
+
+        {{u | safe}}
+        <br><br>
+        <input type="submit" align="center" value="Remove">
+        
+    </form>
+
+</body>
+</html>
+

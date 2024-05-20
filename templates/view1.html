@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+body{ 
+	background-image:url('https://image.freepik.com/free-vector/abstract-background-with-a-watercolor-texture_1048-2144.jpg'); 
+} 
+     
+        ul {
+          list-style-type: none;
+          margin: 0;
+          padding: 0;
+          overflow: hidden;
+          background-color: #333333;
+        }
+        
+        li {
+          float: left;
+        }
+        
+        li a {
+          display: block;
+          color: white;
+          text-align: center;
+          padding: 16px;
+          text-decoration: none;
+        }
+        
+        li a:hover {
+          background-color: #111111;
+        }
+        </style>
+</head>
+
+<body >
+    <h2>Welcome To {{u2}} </h2>
+<p></p>
+
+<ul>
+  <li><a href="/home">Home</a></li>
+  <li><a href="/add">Add List</a></li>
+  
+  <li><a href="/cat">Add category</a></li>
+</ul>
+
+    <P></P>
+    <center>
+        
+            
+
+        <form action="view2f" method="post">
+            <table> <th><h2>TODO LIST ITEMS</h2>
+                <th><select name="c" style="width: 100%; max-width: 100%;height:30px;" id="category">
+                    <option value="1">OutDated_List</option>
+                    <option value="2">Sort_By_Date_Ascending</option>
+                    <option value="3">Sort_By_Date_Decending</option>
+                    <option value="4">Completed_List</option>
+                    <option value="5">InComplete_List</option>
+                    <option value="6">Removed_list</option></th>
+            
+               <th> <input type="submit" align="center" value="Apply"></th>
+   
+            </table>
+        </form>
+    
+        <p style="color:rgb(153, 51, 51)">{{p}}</p>
+    </center>
+
+    <hr />
+    <center>
+
+        <table border='1' style="border:border-collapse">
+            <!-- <th style=" background-color: rgb(237, 233, 240);">t_id</th> -->
+            <th style=" background-color: rgb(228, 218, 237);">Title</th>
+            <th style=" background-color: rgb(234, 232, 236);">T_description</th>
+            <th style=" background-color: rgb(221, 214, 227);">created_at</th>
+            <th style=" background-color: rgb(221, 214, 227);">updated_at</th>
+            <!-- <th style=" background-color: rgb(218, 212, 222);">user_id</th> -->
+            <th style=" background-color: rgb(221, 214, 227);">Deadline</th>
+            <th style=" background-color: rgb(211, 205, 216);">Status</th>
+           
+
+            {% for record in u : %}
+            
+            <tr>
+
+                
+           
+                       
+                    
+    
+                <!-- <td> {{record[0]}} </td> -->
+                <td>{{record[1]}}</td>
+                <td>{{record[2]}}</td>
+                <td>{{record[3]}}</td>
+                <td>{{record[4]}}</td>
+                <!-- <td>{{record[5]}}</td> -->
+                <td>{{record[6]}}</td>
+
+                <td border="0px">
+                 <form action="/delete1f/{{record[0]}}" method="post">  <input type="submit" style="color:brown"  name="remove" value="Remove">  </form> 
+                 <form action="/delete2f/{{record[0]}}" method="post">  <input type="submit" style="color:rgb(42, 165, 134)" name="remove" value="completed"></form> 
+               <form action="/delete3f/{{record[0]}}" method="post">  <input type="submit" style="color:rgb(147, 42, 165)" name="remove" value="Incompleted"></form> 
+              </td>
+            </tr>
+        
+
+            {% endfor %}
+       
+    </center>
+
+</body>
+
+</html> 
